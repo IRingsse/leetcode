@@ -19,7 +19,7 @@ public class Question001 {
 
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         //本算法利用查询key值是否已经存在的方法找出相加等于target，
-        // key存的是target-当前值，value是当前的位置，在以后每次查询当前key时如果存在则证明当前值+old key = target
+        // key存的是target-当前值，value是当前的位置，在以后每次查询当前值时如果存在则证明当前值+old key = target
         //get返回值到old key的位置，i为当前值位置
         for (int i = 0; i < nums.length; i++) {
             if (hashMap.get(nums[i]) != null) {
