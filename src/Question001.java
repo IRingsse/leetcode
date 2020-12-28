@@ -1,52 +1,23 @@
+import java.util.HashMap;
+
 public class Question001 {
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1,new ListNode(5));
-        ListNode l2 = new ListNode(6,new ListNode(5,new ListNode(6,new ListNode(9))));
-        ListNode l3 = new ListNode();
-        ListNode l4 =new ListNode();
-        l4 = l3;
-        boolean signal = false;
-        int l1num = 0, l2num = 0;
-        while (l1 != null || l2 != null) {
-            if (l1 != null) {
-                l1num = l1.val;
-            } else {
-                l1num = 0;
-            }
-            if (l2 != null) {
-                l2num = l2.val;
-            } else {
-                l2num = 0;
-            }
-            if (signal){
-                l3.val = (l1num + l2num + 1)%10;}
-            else{
-                l3.val= (l1num+l2num)%10;
-            }
-            if(signal&&l1num + l2num + 1>=10){
-                signal=true;
-            }else if(!signal&&l1num + l2num >=10){
-                signal=true;
-            }else{
-                signal=false;
-            }
-            ListNode tem = new ListNode();
-            if(l1!=null)
-                l1=l1.next;
-            if(l2!=null)
-                l2=l2.next;
-            if(l1 != null || l2 != null){
-                l3.next=tem;
-                l3 = tem;}
+        int[] nums = {2, 7, 11, 15};//输入
+        int target = 9;//输入
+        int[] last = new int[2];//输出
 
+        HashMap<Integer, Integer> hashMap = new HashMap<>();//创立一个HashMap当查询到
+        for (int i = 0; i < nums.length; i++) {
+            if (hashMap.get(nums[i]) != null) {
+                last[0] = hashMap.get(nums[i]);
+                last[1] = i;
+            }
+            hashMap.put(target - nums[i], i);
+        }
+        for (int i = 0; i < last.length; i++) {
+            System.out.println(last[i]);
+        }
 
-        }
-        if(signal){
-            ListNode tem = new ListNode(1);
-            l3.next=tem;
-        }
-        System.out.println(l4.toString());
 
     }
-
 }
