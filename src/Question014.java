@@ -15,7 +15,7 @@
  */
 public class Question014 {
     public static void main(String[] args) {
-        String[] str = {"cir", "car" };
+        String[] str = {"cair", "car" };
         System.out.println(longestCommonPrefix(str));
 
     }
